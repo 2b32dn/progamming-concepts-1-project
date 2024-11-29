@@ -1,14 +1,27 @@
 import java.util.*;
 
 class GroceryStore {
+  private ArrayList<String> basket = new ArrayList<>();
+
+  // Setters
+  public void setItems(String item) {
+    basket.add(item);
+
+  }
+
+  // Getters
+  public ArrayList<String> getStoreItems() {
+    return basket;
+  }
 }
 
 public class GroceryStoreClass {
 
   public static void main(String[] args) {
-    ArrayList<String> basket = new ArrayList<>();
     int itemSelected, total = 0;
     boolean stopAdding = true;
+    GroceryStore grocerystore = new GroceryStore();
+
     Scanner keyboard = new Scanner(System.in);
 
     System.out.println("Welcome to our store!");
@@ -21,27 +34,31 @@ public class GroceryStoreClass {
           stopAdding = false;
           break;
         case 1:
-          basket.add("apple");
+          grocerystore.setItems("apple");
           break;
         case 2:
-          basket.add("orange");
+          grocerystore.setItems("orange");
           break;
         case 3:
-          basket.add("banana");
+          grocerystore.setItems("banana");
           break;
         default:
           System.out.println("No items were added to the basket");
       }
     } while (stopAdding);
 
-    for (int i = 0; i < basket.size(); i++) {
-      if (basket.get(i) == "apple") {
-        total += 1;
-      } else {
-        total += 2;
-      }
-    }
-    System.out.println(total);
+    // System.out.println("These are your items inside your basket: ");
+    System.out.println(grocerystore.getStoreItems());
+    // System.out.println("Do you want to remove an item?");
+
+    // for (int i = 0; i < basket.size(); i++) {
+    // if (basket.get(i) == "apple") {
+    // total += 1;
+    // } else {
+    // total += 2;
+    // }
+    // }
+    // System.out.println(total);
     keyboard.close();
   }
 }
