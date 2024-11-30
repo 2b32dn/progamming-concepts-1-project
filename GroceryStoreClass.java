@@ -184,7 +184,7 @@ public class GroceryStoreClass {
         }
 
         deleteItem = keyboard.nextLine().toLowerCase();
-        System.out.println("Type the item to remove from your basket. Type q to checkout or stop removing");
+        System.out.println("\nType the item to remove from your basket. Type q to checkout or stop removing.");
         switch (deleteItem) {
           case "q":
             startDelete = false;

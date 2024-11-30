@@ -2,8 +2,9 @@ Thank you for shopping at our Grocery Store.
 
 
 Your basket:
+ 1. apple
 
-The total cost of your basket is: $0
+The total cost of your basket is: $1
 
 
  _
