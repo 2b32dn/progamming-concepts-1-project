@@ -135,6 +135,10 @@ public class GroceryStoreClass {
       startDelete = true;
       System.out.println("Type the item to be remove from the basket or \"q\" to quit: ");
       do {
+        if (grocerystore.getBasketCount() <= 0) {
+          startDelete = false;
+          break;
+        }
         deleteItem = keyboard.nextLine().toLowerCase();
         switch (deleteItem) {
           case "q":
