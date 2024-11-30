@@ -1,8 +1,23 @@
-# progamming-concepts-1-project
+# 420-911-VA - Programming Concepts 1 Course Project
 
-# Division of Work
+Vanier College
+Date: 6 December 2024
+Author:
 
-## Rishard
+- Dickson Lee (2495196)
+- Rishard Mohamed Gulam Mohamed (2495235)
+
+## Overview
+
+This project aims to bring together the concepts and techniques learned in the course by designing and implementing an event-driven
+simulation in Java. You will develop a complete, functional application using object-oriented principles and Java programming features.
+The goal is to simulate a dynamic system where _events trigger changes in state or behavior_, reinforcing your problem-solving and programming skills.
+
+# Project Idea: Simulate a Grocery Shopping Experience
+
+## Division of Work
+
+### Rishard
 
 1. Create the Item class:
 
@@ -12,7 +27,7 @@
 2. Create the structure of the GroceryStore class: (removed)
 3. Write a method in the GroceryStore class to calculate the total cost of items in the cart.
 
-## Dickson
+### Dickson
 
 Focus: User experience, checkout process, and receipt generation.
 

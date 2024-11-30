@@ -18,11 +18,14 @@ class GroceryStore {
     return basket;
   }
 
-  public int getBasketCount() {
+  public int getBasketCount() { // return array size
     return basket.size();
   }
 
   // Methods
+
+  // Method to remove an item from the ArrayList<String> if it matches with the
+  // user's input
   public void removeAnItem(ArrayList<String> arr, String item) {
     Iterator<String> iterator = arr.iterator();
     while (iterator.hasNext()) {
@@ -35,6 +38,7 @@ class GroceryStore {
     System.out.println("Your basket has: " + arr);
   }
 
+  // Method to count the same item and list them accordingly.
   public void sortBasket(ArrayList<String> arr) {
     Iterator<String> iterator = arr.iterator();
     int appleCount = 0, orangeCount = 0, bananaCount = 0, steakCount = 0, salmonCount = 0;
@@ -59,6 +63,7 @@ class GroceryStore {
         steakCount, salmonCount);
   }
 
+  // Calculate the total from the array
   public int calculateTotal(ArrayList<String> basket) {
     int total = 0;
     final int apple_price = 1;
@@ -114,12 +119,14 @@ public class GroceryStoreClass {
     System.out
         .printf(
             "1) Apple $1 each \n2) Orange $2 each\n3) Banana $3 each\n4) Steak $5 each\n5) Salmon $4 each\nQ) Type -1 to checkout \n");
+
+    // First loop. Ask user to enter the integer to add the item or stop adding
     do {
       System.out.print("\nEnter the available digit or -1 for checkout: ");
       itemSelected = keyboard.nextInt();
       switch (itemSelected) {
         case -1:
-          stopAdding = false;
+          stopAdding = false; // boolean to exit the loop
           break;
         case 1:
           grocerystore.setItems(APPLE);
@@ -152,19 +159,30 @@ public class GroceryStoreClass {
       }
     } while (stopAdding);
 
+    // Display user's basket after adding the items
     grocerystore.sortBasket(grocerystore.getBasket());
 
     Scanner input = new Scanner(System.in);
     System.out.println("\nDo you want to remove an item? Enter Y or N: ");
     deleteQuestion = input.nextLine();
 
+    // Ask user to remove an item or not. If Y, enter the loop. If not, go to
+    // checkout.
+
     if (deleteQuestion.toLowerCase().equals("y")) {
       startDelete = true;
+
+      // First Loop. Keep asking the user to type the item's name to delete or q to
+      // checkout
       do {
+
+        // Check basket if it is empty or not. If empty, immediately
+        // checkout.
         if (grocerystore.getBasketCount() <= 0) {
           startDelete = false;
           break;
         }
+
         deleteItem = keyboard.nextLine().toLowerCase();
         System.out.println("Type the item to remove from your basket. Type q to checkout or stop removing");
         switch (deleteItem) {
@@ -192,6 +210,7 @@ public class GroceryStoreClass {
       startDelete = false;
     }
 
+    // Calculate total cost of the basket after removing an item or not.
     totalCost = grocerystore.calculateTotal(grocerystore.getBasket());
 
     System.out.println("\nHere is your receipt.\n");
@@ -205,6 +224,7 @@ public class GroceryStoreClass {
     input.close();
     keyboard.close();
 
+    // Start printing the receipt
     PrintWriter outputFile = new PrintWriter("receipt.txt");
 
     outputFile.println("Thank you for shopping at our Grocery Store.\n\n");
@@ -214,6 +234,7 @@ public class GroceryStoreClass {
     }
     outputFile.printf("\nThe total cost of your basket is: $%d\n\n\n", totalCost);
 
+    // Why not.
     outputFile.println(" _");
     outputFile.println("//\\");
     outputFile.println("V  \\");
