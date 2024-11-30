@@ -1,0 +1,25 @@
+Thank you for shopping at our Grocery Store.
+
+
+Your basket:
+
+The total cost of your basket is: $0
+
+
+ _
+//\
+V  \
+ \  \_
+  \,'.`-.
+   |\ `. `.       
+   ( \  `. `-.                        _,.-:\
+    \ \   `.  `-._             __..--' ,-';/
+     \ `.   `-.   `-..___..---'   _.--' ,'/
+      `. `.    `-._        __..--'    ,' /
+        `. `-_     ``--..''       _.-' ,'
+          `-_ `-.___        __,--'   ,'
+             `-.__  `----"""    __.-'
+                  `--..____..--'
+
+
+Please visit us another time!

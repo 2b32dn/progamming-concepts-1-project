@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 class GroceryStore {
@@ -53,15 +54,46 @@ class GroceryStore {
     }
     System.out.println("\nThese are your items inside your basket: ");
     System.out.println("------------------------------------------");
-    System.out.printf("\n%dx Apple\n%dx Orange\n%dx Banana\n%dx Steak\n%dx Salmon\n", appleCount, orangeCount,
+    System.out.printf("\n%d Apple\n%d Orange\n%d Banana\n%d Steak\n%d Salmon\n", appleCount, orangeCount,
         bananaCount,
         steakCount, salmonCount);
   }
+
+  public int calculateTotal(ArrayList<String> basket) {
+    int total = 0;
+    final int apple_price = 1;
+    final int orange_price = 2;
+    final int banana_price = 3;
+    final int steak_price = 5;
+    final int salmon_price = 4;
+
+    for (String item : basket) {
+      switch (item) {
+        case "apple":
+          total += apple_price;
+          break;
+        case "orange":
+          total += orange_price;
+          break;
+        case "banana":
+          total += banana_price;
+          break;
+        case "steak":
+          total += steak_price;
+          break;
+        case "salmon":
+          total += salmon_price;
+          break;
+      }
+    }
+    return total;
+  }
+
 }
 
 public class GroceryStoreClass {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
 
     final String APPLE = "apple";
     final String ORANGE = "orange";
@@ -70,7 +102,7 @@ public class GroceryStoreClass {
     final String SALMON = "salmon";
 
     String deleteItem, deleteQuestion;
-    int itemSelected, total = 0;
+    int itemSelected, totalCost = 0;
     boolean stopAdding = true, startDelete = false;
     GroceryStore grocerystore = new GroceryStore();
 
@@ -120,11 +152,6 @@ public class GroceryStoreClass {
       }
     } while (stopAdding);
 
-    // System.out.println("\nThese are your items inside your basket: ");
-    // for (int i = 0; i < grocerystore.getBasketCount(); i++) {
-    // System.out.printf("%2s. %s\n", i + 1, grocerystore.getBasket().get(i));
-    // }
-
     grocerystore.sortBasket(grocerystore.getBasket());
 
     Scanner input = new Scanner(System.in);
@@ -139,6 +166,7 @@ public class GroceryStoreClass {
           break;
         }
         deleteItem = keyboard.nextLine().toLowerCase();
+        System.out.println("Type the item to remove from your basket. Type q to checkout or stop removing");
         switch (deleteItem) {
           case "q":
             startDelete = false;
@@ -164,17 +192,47 @@ public class GroceryStoreClass {
       startDelete = false;
     }
 
-    grocerystore.sortBasket(grocerystore.getBasket());
+    totalCost = grocerystore.calculateTotal(grocerystore.getBasket());
 
-    // for (int i = 0; i < basket.size(); i++) {
-    // if (basket.get(i) == "apple") {
-    // total += 1;
-    // } else {
-    // total += 2;
-    // }
-    // }
-    // System.out.println(total);
+    System.out.println("\nHere is your receipt.\n");
+    System.out.println("Print.\n");
+    System.out.println("Print..\n");
+    System.out.println("Print...\n");
+    System.out.println("Print..\n");
+    System.out.println("Print.\n");
+    System.out.println("Done! Check your bag (root folder)!\n");
+
     input.close();
     keyboard.close();
+
+    PrintWriter outputFile = new PrintWriter("receipt.txt");
+
+    outputFile.println("Thank you for shopping at our Grocery Store.\n\n");
+    outputFile.println("Your basket:");
+    for (int i = 0; i < grocerystore.getBasketCount(); i++) {
+      outputFile.printf("%2s. %s\n", i + 1, grocerystore.getBasket().get(i));
+    }
+    outputFile.printf("\nThe total cost of your basket is: $%d\n\n\n", totalCost);
+
+    outputFile.println(" _");
+    outputFile.println("//\\");
+    outputFile.println("V  \\");
+    outputFile.println(" \\  \\_");
+    outputFile.println("  \\,'.`-.");
+    outputFile.println("   |\\ `. `.       ");
+    outputFile.println("   ( \\  `. `-.                        _,.-:\\");
+    outputFile.println("    \\ \\   `.  `-._             __..--' ,-';/");
+    outputFile.println("     \\ `.   `-.   `-..___..---'   _.--' ,'/");
+    outputFile.println("      `. `.    `-._        __..--'    ,' /");
+    outputFile.println("        `. `-_     ``--..''       _.-' ,'");
+    outputFile.println("          `-_ `-.___        __,--'   ,'");
+    outputFile.println("             `-.__  `----\"\"\"    __.-'");
+    outputFile.println("                  `--..____..--'");
+
+    outputFile.println("");
+    outputFile.println("");
+    outputFile.println("Please visit us another time!");
+
+    outputFile.close();
   }
 }
