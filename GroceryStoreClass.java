@@ -83,7 +83,7 @@ public class GroceryStoreClass {
         .printf(
             "1) Apple $1 each \n2) Orange $2 each\n3) Banana $3 each\n4) Steak $5 each\n5) Salmon $4 each\nQ) Type -1 to checkout \n");
     do {
-      System.out.print("Enter the available digit or -1 for checkout: ");
+      System.out.print("\nEnter the available digit or -1 for checkout: ");
       itemSelected = keyboard.nextInt();
       switch (itemSelected) {
         case -1:
@@ -91,32 +91,32 @@ public class GroceryStoreClass {
           break;
         case 1:
           grocerystore.setItems(APPLE);
-          System.out.println("One apple has been added into your basket.");
+          System.out.println("\nOne apple has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 2:
           grocerystore.setItems(ORANGE);
-          System.out.println("One orange has been added into your basket.");
+          System.out.println("\nOne orange has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 3:
           grocerystore.setItems(BANANA);
-          System.out.println("One banana has been added into your basket.");
+          System.out.println("\nOne banana has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 4:
           grocerystore.setItems(STEAK);
-          System.out.println("One steak has been added into your basket.");
+          System.out.println("\nOne steak has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 5:
           grocerystore.setItems(SALMON);
-          System.out.println("One salmon has been added into your basket.");
+          System.out.println("\nOne salmon has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         default:
-          System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
-          System.out.println("No items were added to the basket");
+          System.out.printf("\nYour basket has: %s\n", grocerystore.getBasket());
+          System.out.println("No items were added to the basket\n");
       }
     } while (stopAdding);
 
