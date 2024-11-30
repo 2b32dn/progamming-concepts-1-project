@@ -22,10 +22,6 @@ class GroceryStore {
   }
 
   // Methods
-  // public ArrayList<String> removeItem(int index) {
-  // return basket.remove(0);
-  // }
-
   public void removeAnItem(ArrayList<String> arr, String item) {
     Iterator<String> iterator = arr.iterator();
     while (iterator.hasNext()) {
@@ -35,7 +31,7 @@ class GroceryStore {
         break;
       }
     }
-    System.out.println("The new array is: " + arr);
+    System.out.println("Your basket has: " + arr);
   }
 
   public void sortBasket(ArrayList<String> arr) {
@@ -66,6 +62,13 @@ class GroceryStore {
 public class GroceryStoreClass {
 
   public static void main(String[] args) {
+
+    final String APPLE = "apple";
+    final String ORANGE = "orange";
+    final String BANANA = "banana";
+    final String STEAK = "steak";
+    final String SALMON = "salmon";
+
     String deleteItem, deleteQuestion;
     int itemSelected, total = 0;
     boolean stopAdding = true, startDelete = false;
@@ -75,7 +78,7 @@ public class GroceryStoreClass {
 
     System.out.println("\nWelcome to our store!\n");
     System.out.println("Please select an item among the list to add into your basket: ");
-    System.out.println("--------------------------------------------------------------- ");
+    System.out.println("------------------------------------------------------------- ");
     System.out
         .printf(
             "1) Apple $1 each \n2) Orange $2 each\n3) Banana $3 each\n4) Steak $5 each\n5) Salmon $4 each\nQ) Type -1 to checkout \n");
@@ -87,27 +90,27 @@ public class GroceryStoreClass {
           stopAdding = false;
           break;
         case 1:
-          grocerystore.setItems("apple");
+          grocerystore.setItems(APPLE);
           System.out.println("One apple has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 2:
-          grocerystore.setItems("orange");
+          grocerystore.setItems(ORANGE);
           System.out.println("One orange has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 3:
-          grocerystore.setItems("banana");
+          grocerystore.setItems(BANANA);
           System.out.println("One banana has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 4:
-          grocerystore.setItems("steak");
+          grocerystore.setItems(STEAK);
           System.out.println("One steak has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
         case 5:
-          grocerystore.setItems("salmon");
+          grocerystore.setItems(SALMON);
           System.out.println("One salmon has been added into your basket.");
           System.out.printf("Your basket has: %s\n", grocerystore.getBasket());
           break;
@@ -130,31 +133,30 @@ public class GroceryStoreClass {
 
     if (deleteQuestion.toLowerCase().equals("y")) {
       startDelete = true;
-      System.out.println("Type the item to be remove from the basket: ");
+      System.out.println("Type the item to be remove from the basket or \"q\" to quit: ");
       do {
-        deleteItem = keyboard.nextLine();
+        deleteItem = keyboard.nextLine().toLowerCase();
         switch (deleteItem) {
           case "q":
             startDelete = false;
             break;
-          case "apple":
-            grocerystore.removeAnItem(grocerystore.getBasket(), "apple");
+          case APPLE:
+            grocerystore.removeAnItem(grocerystore.getBasket(), APPLE);
             break;
-          case "orange":
-            grocerystore.removeAnItem(grocerystore.getBasket(), "orange");
+          case ORANGE:
+            grocerystore.removeAnItem(grocerystore.getBasket(), ORANGE);
             break;
-          case "banana":
-            grocerystore.removeAnItem(grocerystore.getBasket(), "banana");
+          case BANANA:
+            grocerystore.removeAnItem(grocerystore.getBasket(), BANANA);
             break;
-          case "steak":
-            grocerystore.removeAnItem(grocerystore.getBasket(), "steak");
+          case STEAK:
+            grocerystore.removeAnItem(grocerystore.getBasket(), STEAK);
             break;
-          case "salmon":
-            grocerystore.removeAnItem(grocerystore.getBasket(), "salmon");
+          case SALMON:
+            grocerystore.removeAnItem(grocerystore.getBasket(), SALMON);
             break;
         }
       } while (startDelete);
-
     } else {
       startDelete = false;
     }
