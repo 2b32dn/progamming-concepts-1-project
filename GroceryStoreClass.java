@@ -133,7 +133,6 @@ public class GroceryStoreClass {
 
     if (deleteQuestion.toLowerCase().equals("y")) {
       startDelete = true;
-      System.out.println("Type the item to be remove from the basket or \"q\" to quit: ");
       do {
         if (grocerystore.getBasketCount() <= 0) {
           startDelete = false;
