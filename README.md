@@ -1,7 +1,8 @@
 # 420-911-VA - Programming Concepts 1 Course Project
 
-Vanier College
-Date: 6 December 2024
+Vanier College <br />
+Date: 6 December 2024<br />
+
 Author:
 
 - Dickson Lee (2495196)
